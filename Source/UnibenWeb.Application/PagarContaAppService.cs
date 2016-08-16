@@ -1,9 +1,11 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using UnibenWeb.Application.Interface;
 using UnibenWeb.Application.Validation;
 using UnibenWeb.Application.ViewModels;
 using UnibenWeb.Domain.Entities;
 using UnibenWeb.Domain.Interfaces.Services;
+using System.Collections.Generic;
 
 namespace UnibenWeb.Application
 {
@@ -21,6 +23,14 @@ namespace UnibenWeb.Application
         public ValidationAppResult Adicionar(bool doLog, string userId, PagarContaVm pagarContaVm)
         {
             var pagarConta = Mapper.Map<PagarContaVm, PagarConta>(pagarContaVm);
+            var auxValor = pagarConta.ValorTotal;
+            var auxVencimentos = DateTime.Now;
+            pagarConta.contaParcelas = new List<PagarContaParcela>();
+            for (int i = 0; i < pagarConta.NumeroParcelas; i++)
+            {
+                var novaParcela = new PagarContaParcela { ValorParcela = (pagarConta.ValorTotal / pagarConta.NumeroParcelas), contaOrigem = pagarConta, DataPagamento = null, DataVencimento = auxVencimentos.AddMonths(1), Desconto = 0, Juros = 0, Descricao = "", Observacao = "", Status = false};
+                pagarConta.contaParcelas.Add(novaParcela);
+            }
             BeginTransaction();
             var result =  _pagarContaService.Adicionar(pagarConta);
             if (!result.IsValid) { return DomainToApllicationResult(result); }
@@ -28,5 +38,6 @@ namespace UnibenWeb.Application
             pagarContaVm.PagarContaId = pagarConta.PagarContaId;
             return DomainToApllicationResult(result);
         }
+
     }
 }

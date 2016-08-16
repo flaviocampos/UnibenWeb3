@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using UnibenWeb.Domain.Interfaces.Validation;
@@ -12,7 +14,7 @@ namespace UnibenWeb.Domain.Entities
     {
         public PagarConta()
         {
-
+           // contaParcelas = new List<PagarContaParcela>();
         }
 
         [Key]
@@ -33,7 +35,8 @@ namespace UnibenWeb.Domain.Entities
         // ======================================|
         public virtual Pessoa Fornecedor { get; set; }
         public virtual CentroCusto CentroCusto { get; set; }
-        
+        public virtual ICollection<PagarContaParcela> contaParcelas { get; set; }
+
 
         // ===========================================|
         // Validação Dos Dados do Objeto Dessa Classe |

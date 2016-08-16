@@ -131,6 +131,27 @@
     <a href="#" class="btn btn-default" onclick="SalvarConta();"> Criar Conta </a>
 </div>
 
+<div class="col-md-12" id="detalheParcelas">
+    <h2>Parcelas</h2>
+    <table id="myDataTable" class="display">
+        <thead>
+            <tr>
+                <th>COL1</th>
+                <th>COL2</th>
+                <th>COL3</th>
+                <th>COL4</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</div>
+
+
+@Styles.Render("~/bundles/Content/DataTables")
+@Scripts.Render("~/bundles/scripts/DataTables")
+
 @section Scripts {
 
  <!-- cdn for modernizr, if you haven't included it already -->
@@ -139,6 +160,7 @@
 <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
 
     <script>
+
         function SalvarConta() {
             debugger;
             var dataemissao = $("#DataEmissao").val();
@@ -149,6 +171,7 @@
             var valortotal = $("#ValorTotal").val();
             var centrocustoid = $("#CentroCustoId").val();
             var fornecedorid = $("#FornecedorId").val();
+
             // ------
             var token = $('input[name="__RequestVerificationToken"]').val();
             var tokenadr = $('form[action="/Pessoa/Create"] input [name="__RequestVerificationToken"]').val();
@@ -198,12 +221,49 @@
                 }
             })
         }
-    </script>
 
-<script>
+
   webshims.setOptions('waitReady', false);
   webshims.setOptions('forms-ext', {types: 'date'});
   webshims.polyfill('forms forms-ext');
-</script>
 
+  $(document)
+.ready(function () {
+    var oTable = $('#myDataTable').dataTable({
+        "iDisplayLength": 25,
+        "bSortClasses": false,
+        "bStateSave": false,
+        "bPaginate": true,
+        "bAutoWidth": false,
+        "bDestroy": true,
+        "autoFill": true,
+        "responsive": true,
+        "colReorder": true,
+        "dom": 'Bfrtip',
+        "buttons": {
+            buttons: ['copy', 'csv', 'excel']
+        },
+        "bJQueryUI": false,
+        "bServerSide": true,
+        "sAjaxSource": "@Url.Action("AjaxHandler", "PagarContas", routeValues: new { Area = "" })",
+        "bProcessing": true,
+        "aoColumns": [
+            {
+                "sName": "COL1",
+                "bSearchable": false,
+                "bSortable": false,
+                "fnRender": function (oObj) {
+                    return '<a href=\"Cadastro/Pessoa/Details/' + oObj.aData[0] + '\">View</a>';
+                }
+            },
+            { "sName": "COL1" },
+            { "sName": "COL2" },
+            { "sName": "COL3" },
+            { "sName": "COL4" }
+        ]
+    });
+});
+
+
+</script>
 }

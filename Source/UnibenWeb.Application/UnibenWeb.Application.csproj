@@ -130,6 +130,7 @@
     <Compile Include="ViewModels\Identity\RoleVm.cs" />
     <Compile Include="ViewModels\Identity\IdentityUserVm.cs" />
     <Compile Include="ViewModels\OperadoraVm.cs" />
+    <Compile Include="ViewModels\PagarContaParcelaVm.cs" />
     <Compile Include="ViewModels\PagarContaVm.cs" />
     <Compile Include="ViewModels\PessoaEnderecoVM.cs" />
     <Compile Include="ViewModels\PessoaSexoVm.cs" />

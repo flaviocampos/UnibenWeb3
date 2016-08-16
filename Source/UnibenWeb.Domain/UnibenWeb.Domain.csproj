@@ -88,6 +88,7 @@
     <Compile Include="Interfaces\Repository\IEnderecoRepository.cs" />
     <Compile Include="Interfaces\Repository\IEstadoCivilRepository.cs" />
     <Compile Include="Interfaces\Repository\IModoPagamentoRepository.cs" />
+    <Compile Include="Interfaces\Repository\IPagarContaParcelaRepository.cs" />
     <Compile Include="Interfaces\Repository\IPagarContaRepository.cs" />
     <Compile Include="Interfaces\Repository\IPessoaRepository.cs" />
     <Compile Include="Interfaces\Repository\ISegmentoAssistencialRepository.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Interfaces\Services\ICKContratoService.cs" />
     <Compile Include="Interfaces\Services\IEnderecoService.cs" />
     <Compile Include="Interfaces\Services\IEstadoCivilService.cs" />
+    <Compile Include="Interfaces\Services\IPagarContaParcelaService.cs" />
     <Compile Include="Interfaces\Services\IPagarContaService.cs" />
     <Compile Include="Interfaces\Services\IPessoaService.cs" />
     <Compile Include="Interfaces\Specification\ISpecification.cs" />
@@ -113,6 +115,7 @@
     <Compile Include="Services\BancoService.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CKContratoService.cs" />
+    <Compile Include="Services\PagarContaParcelaService.cs" />
     <Compile Include="Services\EnderecoService.cs" />
     <Compile Include="Services\EstadoCivilService.cs" />
     <Compile Include="Services\PagarContaService.cs" />

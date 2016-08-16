@@ -37,6 +37,9 @@ namespace UnibenWeb.Domain.Services
 
             //adicionar
             _pagarContaRepository.Add(pagarConta);
+
+
+
             return resultValidacao;
         }
 

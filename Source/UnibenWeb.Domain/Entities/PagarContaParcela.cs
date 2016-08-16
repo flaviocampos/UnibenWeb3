@@ -17,9 +17,9 @@ namespace UnibenWeb.Domain.Entities
         [Key]
         public int PagarContaParcelaId { get; set; }
         public string Descricao { get; set; }
-        public string Observação { get; set; }
+        public string Observacao { get; set; }
         public DateTime DataVencimento { get; set; }
-        public DateTime DataPagamento { get; set; }
+        public DateTime? DataPagamento { get; set; }
         public decimal ValorParcela { get; set; }
         public decimal Juros { get; set; }
         public decimal Desconto { get; set; }
@@ -28,8 +28,8 @@ namespace UnibenWeb.Domain.Entities
         // ======================================|
         // Atributo de Navegaçãcao Entre Objetos |
         // ======================================|
-        public virtual Pessoa Fornecedor { get; set; }
-        public virtual CentroCusto CentroCusto { get; set; }
+
+        public virtual PagarConta contaOrigem { get; set; }
 
         // ===========================================|
         // Validação Dos Dados do Objeto Dessa Classe |
