@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using Microsoft.Practices.ServiceLocation;
-using UnibenWeb.Infra.CrossCutting.Log.Context;
+using UnibenWeb.Infra.CrossCutting.Audit.Context;
 using UnibenWeb.Infra.Data.Context;
 using UnibenWeb.Infra.Data.Interfaces;
 

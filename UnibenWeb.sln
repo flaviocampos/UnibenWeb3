@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnibenWeb.Infra.CrossCuttin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnibenWeb.Infra.CrossCutting.Identity", "Source\UnibenWeb.Infra.CrossCutting.Identity\UnibenWeb.Infra.CrossCutting.Identity.csproj", "{EFAA9B71-74A6-4DF8-945A-D27314E38A52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnibenWeb.Infra.CrossCutting.Log", "Source\UnibenWeb.Infra.CrossCutting.Log\UnibenWeb.Infra.CrossCutting.Log.csproj", "{C44BF410-2948-486A-B393-3802F4A5F667}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnibenWeb.Infra.CrossCutting.Audit", "Source\UnibenWeb.Infra.CrossCutting.Audit\UnibenWeb.Infra.CrossCutting.Audit.csproj", "{C44BF410-2948-486A-B393-3802F4A5F667}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

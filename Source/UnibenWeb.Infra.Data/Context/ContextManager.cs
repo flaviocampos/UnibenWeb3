@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Web;
-using UnibenWeb.Infra.CrossCutting.Log.Context;
+using UnibenWeb.Infra.CrossCutting.Audit.Context;
 using UnibenWeb.Infra.Data.Interfaces;
 
 namespace UnibenWeb.Infra.Data.Context
