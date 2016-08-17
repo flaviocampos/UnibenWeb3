@@ -7,8 +7,8 @@
     <ProjectGuid>{C44BF410-2948-486A-B393-3802F4A5F667}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnibenWeb.Infra.CrossCutting.Log</RootNamespace>
-    <AssemblyName>UnibenWeb.Infra.CrossCutting.Log</AssemblyName>
+    <RootNamespace>UnibenWeb.Infra.CrossCutting.Audit</RootNamespace>
+    <AssemblyName>UnibenWeb.Infra.CrossCutting.Audit</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

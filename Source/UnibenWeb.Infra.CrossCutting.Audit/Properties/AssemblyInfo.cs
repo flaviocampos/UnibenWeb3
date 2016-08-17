@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UnibenWeb.Infra.CrossCutting.Log")]
+[assembly: AssemblyTitle("UnibenWeb.Infra.CrossCutting.Audit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Hewlett-Packard Company")]
-[assembly: AssemblyProduct("UnibenWeb.Infra.CrossCutting.Log")]
+[assembly: AssemblyProduct("UnibenWeb.Infra.CrossCutting.Audit")]
 [assembly: AssemblyCopyright("Copyright © Hewlett-Packard Company 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
