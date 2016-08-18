@@ -61,6 +61,7 @@
                 <th>Company name</th>
                 <th>Address</th>
                 <th>Town</th>
+                <th>Test</th>
             </tr>
         </thead>
         <tbody></tbody>
@@ -73,7 +74,7 @@
 
     <script>
         $(document)
-            .ready(function () {
+            .ready(function() {
                 /*
                 $("li")
                     .click(function() {
@@ -142,37 +143,49 @@
     });
 
                     */
-                var oTable = $('#myDataTable').dataTable({
-                    "iDisplayLength": 25,
-                    "bSortClasses": false,
-                    "bStateSave": false,
-                    "bPaginate": true,
-                    "bAutoWidth": false,
-                    "bDestroy": true,
-                    "autoFill": true,
-                    "responsive": true,
-                    "colReorder": true,
-                    "buttons": {
-                        buttons: [ 'copy', 'csv', 'excel' ]
-                    },
-                    "bJQueryUI": false,
-                    "bServerSide": true,
-                    "sAjaxSource": "@Url.Action("AjaxHandler", "Pessoas", routeValues: new { Area = "" })",
-                    "bProcessing": true,
-                    "aoColumns": [
-                        {
-                            "sName": "ID",
-                            "bSearchable": false,
-                            "bSortable": false,
-                            "fnRender": function (oObj) {
-                                return '<a href=\"Cadastro/Pessoa/Details/' + oObj.aData[0] + '\">View</a>';
-                            }
+                var oTable = $('#myDataTable')
+                    .dataTable({
+                        "iDisplayLength": 25,
+                        "bSortClasses": false,
+                        "bStateSave": false,
+                        "bPaginate": true,
+                        "bAutoWidth": false,
+                        "bDestroy": true,
+                        "autoFill": true,
+                        "responsive": true,
+                        "colReorder": true,
+                        "buttons": {
+                            buttons: ['copy', 'csv', 'excel']
                         },
-                        { "sName": "COMPANY_NAME" },
-                        { "sName": "ADDRESS" },
-                        { "sName": "TOWN" }
-                    ]
-                });
+                        "bJQueryUI": false,
+                        "bServerSide": true,
+                        "sAjaxSource": "@Url.Action("AjaxHandler", "Pessoas", routeValues: new {Area = ""})",
+                        "bProcessing": true,
+                        "aoColumns": [
+                            {
+                                "sName": "ID",
+                                "bSearchable": false,
+                                "bSortable": false
+                            },
+                            { "sName": "COMPANY_NAME" },
+                            { "sName": "ADDRESS" },
+                            { "sName": "TOWN" },
+                            {
+                                "mData": "teste",
+                                "mRender ": function(data, type, val) {
+                                    switch (type) {
+                                    case 'display':
+                                        return '<a href="/data/' + data.foo + '">' + data.bar + '</a>';
+                                        break;
+                                    // optionally, add case statements for 'sort', 'filter', and 'type'
+                                    default:
+                                        return data.bar;
+                                        break;
+                                    }
+                                }
+                            }
+                        ]
+                    });
             });
     </script>
 }

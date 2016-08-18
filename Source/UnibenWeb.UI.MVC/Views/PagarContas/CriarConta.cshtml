@@ -140,6 +140,7 @@
                 <th>COL2</th>
                 <th>COL3</th>
                 <th>COL4</th>
+                <th>COL5</th>
             </tr>
         </thead>
         <tbody>
@@ -227,8 +228,8 @@
   webshims.setOptions('forms-ext', {types: 'date'});
   webshims.polyfill('forms forms-ext');
 
-  $(document)
-.ready(function () {
+  $(document).ready(function () {
+      debugger;
     var oTable = $('#myDataTable').dataTable({
         "iDisplayLength": 25,
         "bSortClasses": false,

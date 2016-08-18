@@ -26,7 +26,6 @@ namespace UnibenWeb.Domain.Services
 
         public ValidationResult Adicionar(Entities.Pessoa pessoa)
         {
-            // Regras de Negocio
             var resultValidacao = new ValidationResult();
             if (!pessoa.IsValid())
             {
