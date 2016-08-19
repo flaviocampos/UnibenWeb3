@@ -59,7 +59,10 @@
     <Compile Include="Entities\BancoContaCorrente.cs" />
     <Compile Include="Entities\CentroCusto.cs" />
     <Compile Include="Entities\CheckListContrato.cs" />
+    <Compile Include="Entities\CheckList.cs" />
     <Compile Include="Entities\ComunicacaoPessoa.cs" />
+    <Compile Include="Entities\ComunicacaoSolucao.cs" />
+    <Compile Include="Entities\MotivoContato.cs" />
     <Compile Include="Entities\PagarConta.cs" />
     <Compile Include="Entities\FaixaEtariaProdutoValor.cs" />
     <Compile Include="Entities\FatorModerador.cs" />
