@@ -56,6 +56,7 @@
     <Compile Include="Entities\AbrangenciaPlano.cs" />
     <Compile Include="Entities\AcomodacaoTipo.cs" />
     <Compile Include="Entities\Banco.cs" />
+    <Compile Include="Entities\BancoContaCorrente.cs" />
     <Compile Include="Entities\CentroCusto.cs" />
     <Compile Include="Entities\CheckListContrato.cs" />
     <Compile Include="Entities\ComunicacaoPessoa.cs" />
