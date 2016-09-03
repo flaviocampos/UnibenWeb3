@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace UnibenWeb.Domain.Entities
 {
-    class BancoContaCorrente
+    public class BancoContaCorrente
     {
-        [Key]
-        public int IdContaCorrente { get; set; }
+       
+        public int ContaCorrenteId { get; set; }
         public string Agencia { get; set; }
         public string AgenciaDigito { get; set; }
         public string ContaCorrente { get; set; }

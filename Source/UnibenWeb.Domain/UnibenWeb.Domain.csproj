@@ -59,10 +59,11 @@
     <Compile Include="Entities\BancoContaCorrente.cs" />
     <Compile Include="Entities\CentroCusto.cs" />
     <Compile Include="Entities\CheckListContrato.cs" />
-    <Compile Include="Entities\CheckList.cs" />
     <Compile Include="Entities\ComunicacaoPessoa.cs" />
-    <Compile Include="Entities\ComunicacaoSolucao.cs" />
-    <Compile Include="Entities\MotivoContato.cs" />
+    <Compile Include="Entities\ContaContabil.cs" />
+    <Compile Include="Entities\Fatura.cs" />
+    <Compile Include="Entities\FormaPagamento.cs" />
+    <Compile Include="Entities\LocalPagamento.cs" />
     <Compile Include="Entities\PagarConta.cs" />
     <Compile Include="Entities\FaixaEtariaProdutoValor.cs" />
     <Compile Include="Entities\FatorModerador.cs" />
@@ -85,7 +86,9 @@
     <Compile Include="Entities\SegmentoAssistencial.cs" />
     <Compile Include="Entities\TipoContratacaoProduto.cs" />
     <Compile Include="Entities\PessoaTipo.cs" />
+    <Compile Include="Entities\TipoLancamento.cs" />
     <Compile Include="Interfaces\Repository\IBancoRepository.cs" />
+    <Compile Include="Interfaces\Repository\ICentroCustoRepository.cs" />
     <Compile Include="Interfaces\Repository\IComunicacaoPessoaRepository.cs" />
     <Compile Include="Interfaces\Repository\IContratoRepository.cs" />
     <Compile Include="Interfaces\Repository\IAcomodacaoTipoRepository.cs" />
@@ -106,7 +109,7 @@
     <Compile Include="Interfaces\Repository\ReadOnly\IPessoaReadOnlyRepository.cs" />
     <Compile Include="Interfaces\Services\IBancoService.cs" />
     <Compile Include="Interfaces\Services\IBaseService.cs" />
-    <Compile Include="Interfaces\Services\ICentroCusto.cs" />
+    <Compile Include="Interfaces\Services\ICentroCustoService.cs" />
     <Compile Include="Interfaces\Services\ICKContratoService.cs" />
     <Compile Include="Interfaces\Services\IComunicacaoPessoaService.cs" />
     <Compile Include="Interfaces\Services\IEnderecoService.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BancoService.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\CentroCustoService.cs" />
     <Compile Include="Services\CKContratoService.cs" />
     <Compile Include="Services\ComunicacaoPessoaService.cs" />
     <Compile Include="Services\PagarContaParcelaService.cs" />
@@ -138,6 +142,7 @@
     <Compile Include="Specification\Pessoa\PessoaPossuiStatusAtivo.cs" />
     <Compile Include="Validation\Base\FiscalBase.cs" />
     <Compile Include="Validation\CentroCustos\CentroCustoFiscalizarRegras.cs" />
+    <Compile Include="Validation\ContaContabeis\ContaContabilFiscalizarRegras.cs" />
     <Compile Include="Validation\Documentos\CNPJValidation.cs" />
     <Compile Include="Validation\Documentos\CPFValidation.cs" />
     <Compile Include="Validation\Enderecos\EnderecoValidacaoGeral.cs" />

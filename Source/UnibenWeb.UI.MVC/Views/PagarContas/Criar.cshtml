@@ -7,21 +7,21 @@
 @*Html.LabelFor(model => model.DataEmissao, htmlAttributes: new { @class = "control-label col-md-2" })*@
 
 <div class="col-md-12">
-    @Html.ActionLink("<<< Voltar para listagem ", "ListarContas")
-</div>
-
-
-<div class="col-md-6">
-    @Html.Label("Centros de Custo", new { @class = "control-label col-md-2" })
-    <div class="col-md-4">
-        @Html.DropDownListFor(d => d.CentroCustoId, (IEnumerable<SelectListItem>)ViewBag.CentroCustos, new { @class = "form-control" })
+    <div class="input-group-btn">
+        <button type="button" class="btn">@Html.ActionLink("<<< Voltar para listagem ", "ListarContas")</button>
     </div>
 </div>
 
-<div class="col-md-6">
-    @Html.Label("Fornecedores", new { @class = "control-label col-md-2" })
-    <div class="col-md-4">
-        @Html.DropDownListFor(d => d.FornecedorId, (IEnumerable<SelectListItem>)ViewBag.Pessoas, new { @class = "form-control" })
+<div class="input-group col-md-6">
+    @Html.Label("Centros de Custo", new { @class = "control-label col-md-3" })
+    @Html.DropDownListFor(d => d.CentroCustoId, (IEnumerable<SelectListItem>)ViewBag.CentroCustos,
+    new { @class = "form-control col-md-9 select2", @multiple = "multiple", @data_placeholder = "Selecione...", @style = "width: 100%;" })
+</div>
+
+<div class="input-group col-md-6">
+    @Html.Label("Fornecedores", new { @class = "control-label col-md-3" })
+    <div class="col-md-9">
+        @Html.DropDownListFor(d => d.FornecedorId, (IEnumerable<SelectListItem>)ViewBag.Pessoas, "", new { @class = "form-control", @data_placeholder = "Selecione..." })
     </div>
 </div>
 
@@ -130,44 +130,37 @@
 <div class="col-md-12">
     <a href="#" class="btn btn-default" onclick="SalvarConta();"> Criar Conta </a>
 </div>
-
-<div class="col-md-12" id="detalheParcelas">
-    <h2>Parcelas</h2>
-    <table id="myDataTable" class="display">
-        <thead>
-            <tr>
-                <th>COL1</th>
-                <th>COL2</th>
-                <th>COL3</th>
-                <th>COL4</th>
-                <th>COL5</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
 </div>
 
 
 @Styles.Render("~/bundles/Content/DataTables")
 @Scripts.Render("~/bundles/scripts/DataTables")
 
-@section Scripts {
+@*.Render("~/bundles/select2")*@
+@Scripts.Render("~/bundles/select2")
 
- <!-- cdn for modernizr, if you haven't included it already -->
-<script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
-<!-- polyfiller file to detect and load polyfills -->
-<script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+@section Scripts {
+    @*
+             <!-- cdn for modernizr, if you haven't included it already -->
+            <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+            <!-- polyfiller file to detect and load polyfills -->
+            <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    *@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" rel="stylesheet" />
+
 
     <script>
-
         function SalvarConta() {
             debugger;
             var dataemissao = $("#DataEmissao").val();
             var descricao = $("#Descricao").val();
             var numeroparcelas = $("#NumeroParcelas").val();
-            var obs = $("#Obs").val();
+            var observacao = $("#Observacao").val();
             var tipoConta = $("#TipoConta").val();
             var valortotal = $("#ValorTotal").val();
             var centrocustoid = $("#CentroCustoId").val();
@@ -179,9 +172,10 @@
             var headers = {};
             var headersadr = {};
             // ------
+
             headers['__RequestVerificationToken'] = token;
             headersadr['__RequestVerificationToken'] = tokenadr;
-            var url = '/Administrativo/ContasPagar/CriarConta';
+            var url = '/Administrativo/ContasPagar/Criar';
             $.ajax({
                 url: url,
                 type: "POST",
@@ -192,7 +186,7 @@
                     DataEmissao: dataemissao,
                     Descricao: descricao,
                     NumeroParcelas: numeroparcelas,
-                    Obs: obs,
+                    Observacao: observacao,
                     TipoConta: tipoConta,
                     ValorTotal: valortotal,
                     CentroCustoId: centrocustoid,
@@ -201,7 +195,8 @@
                 },
                 success: function (data) {
                     if (data.Resultado > 0) {
-                        ListarEnderecos(data.Resultado);
+                        //ListarEnderecos(data.Resultado);
+                        window.location.href = '/Administrativo/ContasPagar/Listar';
                     } else {
                         for (var i = 0; i < data.Resultado['Erros'].length; i++) {
                             $('#divValidate').append($('<li>', {
@@ -224,47 +219,17 @@
         }
 
 
-  webshims.setOptions('waitReady', false);
-  webshims.setOptions('forms-ext', {types: 'date'});
-  webshims.polyfill('forms forms-ext');
 
-  $(document).ready(function () {
-      debugger;
-    var oTable = $('#myDataTable').dataTable({
-        "iDisplayLength": 25,
-        "bSortClasses": false,
-        "bStateSave": false,
-        "bPaginate": true,
-        "bAutoWidth": false,
-        "bDestroy": true,
-        "autoFill": true,
-        "responsive": true,
-        "colReorder": true,
-        "dom": 'Bfrtip',
-        "buttons": {
-            buttons: ['copy', 'csv', 'excel']
-        },
-        "bJQueryUI": false,
-        "bServerSide": true,
-        "sAjaxSource": "@Url.Action("AjaxHandler", "PagarContas", routeValues: new { Area = "" })",
-        "bProcessing": true,
-        "aoColumns": [
-            {
-                "sName": "COL1",
-                "bSearchable": false,
-                "bSortable": false,
-                "fnRender": function (oObj) {
-                    return '<a href=\"Cadastro/Pessoa/Details/' + oObj.aData[0] + '\">View</a>';
-                }
-            },
-            { "sName": "COL1" },
-            { "sName": "COL2" },
-            { "sName": "COL3" },
-            { "sName": "COL4" }
-        ]
-    });
-});
+        $(function () {
+            //Initialize Select2 Elements
+            debugger;
+            $(".select2").select2();
 
-
-</script>
+        });
+        /*
+        webshims.setOptions('waitReady', false);
+        webshims.setOptions('forms-ext', {types: 'date'});
+        webshims.polyfill('forms forms-ext');
+        */
+    </script>
 }

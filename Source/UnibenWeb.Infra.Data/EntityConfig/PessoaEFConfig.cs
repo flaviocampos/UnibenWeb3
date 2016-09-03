@@ -42,7 +42,7 @@ namespace UnibenWeb.Infra.Data.EntityConfig
             //http://stackoverflow.com/questions/18719890/one-to-zero-or-one-with-hasforeignkey
 
             // Exclusivos
-            HasRequired(s => s.Banco).WithMany(s => s.Pessoas).HasForeignKey(s => s.BancoId);
+           // HasRequired(s => s.Banco).WithMany(s => s.Pessoas).HasForeignKey(s => s.BancoId);
             HasRequired(s => s.PessoaTipo).WithMany(s => s.Pessoas).HasForeignKey(s => s.PessoaTipoId);
             //HasRequired(p => p.Banco).WithOptional().Map(p => p.MapKey("BancoId"));
             //HasRequired(p => p.PessoaTipo).WithOptional().Map(p => p.MapKey("PessoaTipoId"));

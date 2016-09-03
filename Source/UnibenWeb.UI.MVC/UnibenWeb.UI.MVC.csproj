@@ -114,6 +114,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.5840.25917, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Linq.Dynamic.1.0.6\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -203,6 +207,7 @@
     <Compile Include="Controllers\Identity\RolesAdminController.cs" />
     <Compile Include="Controllers\Identity\UserAdminController.cs" />
     <Compile Include="Controllers\OperadorasController.cs" />
+    <Compile Include="Controllers\PagarContaParcelasController.cs" />
     <Compile Include="Controllers\PagarContasController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
@@ -250,7 +255,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.css" />
     <Content Include="Content\css\font-awesome.min.css" />
-    <Content Include="Content\DataTables\css\datatables.css" />
+    <Content Include="Content\css\pace.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\DataTables\css\datatables_old.css" />
     <Content Include="Content\DataTables\images\details_close.png" />
     <Content Include="Content\DataTables\images\details_open.png" />
     <Content Include="Content\DataTables\images\sort_asc.png" />
@@ -358,7 +365,7 @@
     <Content Include="Scripts\DataTables\DataTables-1.10.12\js\dataTables.jqueryui.min.js" />
     <Content Include="Scripts\DataTables\DataTables-1.10.12\js\jquery.dataTables.js" />
     <Content Include="Scripts\DataTables\DataTables-1.10.12\js\jquery.dataTables.min.js" />
-    <Content Include="Scripts\DataTables\datatables.css" />
+    <Content Include="Content\css\datatables.css" />
     <Content Include="Scripts\DataTables\datatables.js" />
     <Content Include="Scripts\DataTables\FixedColumns-3.2.2\css\fixedColumns.bootstrap.css" />
     <Content Include="Scripts\DataTables\FixedColumns-3.2.2\css\fixedColumns.bootstrap.min.css" />
@@ -448,7 +455,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\npm.js" />
+    <Content Include="Scripts\pace.js" />
     <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\select2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -530,8 +539,14 @@
     <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Operadoras\ListarOperadoras.cshtml" />
     <Content Include="Views\Operadoras\CriarOperadora.cshtml" />
-    <Content Include="Views\PagarContas\ListarContas.cshtml" />
-    <Content Include="Views\PagarContas\CriarConta.cshtml" />
+    <Content Include="Views\PagarContas\Listar.cshtml" />
+    <Content Include="Views\PagarContas\Criar.cshtml" />
+    <Content Include="Views\PagarContas\Detalhar.cshtml" />
+    <Content Include="Views\PagarContaParcelas\Detalhar.cshtml" />
+    <Content Include="Views\PagarContas\_Detalhar.cshtml" />
+    <Content Include="Views\PagarContas\_Editar.cshtml" />
+    <Content Include="Views\PagarContas\_Excluir.cshtml" />
+    <Content Include="Views\PagarContas\teste.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

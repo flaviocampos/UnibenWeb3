@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnibenWeb.Domain.Interfaces.Services
+namespace UnibenWeb.Application.Interface
 {
-    interface ICentroCusto
+    public interface ICentroCustoAppService : IDisposable
     {
+
     }
 }

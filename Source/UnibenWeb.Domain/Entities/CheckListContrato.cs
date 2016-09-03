@@ -13,10 +13,12 @@ namespace UnibenWeb.Domain.Entities
         }
         [Key]
         public int CheckListContratoId { get; set; }
-        public virtual CheckList CheckItem { get; set; }
         public string Obs { get; set; }
         public bool Checked { get; set; }
         public int UsuarioId { get; set; }
+
+        //public virtual CheckList CheckItem { get; set; }
+
 
     }
 }

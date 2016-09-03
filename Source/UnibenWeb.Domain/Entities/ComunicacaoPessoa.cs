@@ -22,10 +22,11 @@ namespace UnibenWeb.Domain.Entities
         public string Obs { get; set; }
         public DateTime DataRegistro { get; set; }
         public int UsuarioRegistroId { get; set; }
-        public virtual MotivoContato MotivoContato { get; set; }
         public DateTime DataSolucao { get; set; }
         public int UsuarioSolucaoId { get; set; }
-        public virtual ComunicacaoSolucao ComunicacaoSolucao { get; set; }
+
+        // public virtual ComunicacaoSolucao ComunicacaoSolucao { get; set; }
+        // public virtual MotivoContato MotivoContato { get; set; }
 
 
     }
